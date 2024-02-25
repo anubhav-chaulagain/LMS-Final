@@ -156,6 +156,9 @@ def signIn():
 
     username = CTkEntry(m_frame, placeholder_text='Username', width=175, font=('Microsoft YaHei UI Light', 16), border_width=0)
     username.place(x=70, y=70)
+    
+    if (len(username.get()) == 0):
+        messagebox.showerror('Sign Up Error', 'Username must not be empty')
 
     password = CTkEntry(m_frame, placeholder_text='Password', width=175, font=('Microsoft YaHei UI Light', 16), border_width=0)
     password.place(x=70, y=110)
