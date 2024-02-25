@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 import sqlite3
 from tkinter import messagebox
 
+# GUI configurations
 win = Tk()
 win.config(bg='white')
 win.title('Login')
@@ -12,10 +13,12 @@ win.resizable(False, False)
 win.config(bg='#ffe9cf')
 win.iconbitmap('icons/register_login_signup_icon_219991.ico')
 
+# Importing main application
 def lib():
     import liv
     
 
+# Function to registered the new account 
 def signingIn():
     conn = sqlite3.connect('registration.db')
     c = conn.cursor()
@@ -65,7 +68,7 @@ def signingIn():
         conn.commit()
         conn.close()
 
-
+# Function to connect to database and validate the account
 def logingIn():
     conn = sqlite3.connect('registration.db')
     c = conn.cursor()
@@ -99,7 +102,7 @@ log_img = CTkImage(light_image=Image.open('Images/login1.jpg'), size=(500, 327))
 log_label = CTkLabel(win,text='', image=log_img).place(x=50, y=70)
 
 
-# Log In 
+# Log In ------------------------------------------------------------------------------------------------------------------
 
 def logIn():
 
@@ -134,10 +137,8 @@ def logIn():
 
 
 
-# Log In ------------------------------------------------------------------------------------------------------------------
 
-
-# Sign Up 
+# Sign up ----------------------------------------------------------------------------------------------------------------
     
 def signIn():
     m_frame = Frame(win, width=275, height=280, border=0)
@@ -170,7 +171,7 @@ def signIn():
     login_btn = Button(m_frame, text='Log In', foreground='#57a1f8', font=('Microsoft YaHei UI Light', 11, 'bold'), background='#ffe9cf', border=0, cursor='hand2', command=logIn)
     login_btn.place(x=180, y=200)
 
-# Sign up ----------------------------------------------------------------------------------------------------------------
+
 signIn()
 
 
