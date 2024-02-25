@@ -31,23 +31,26 @@ def signingIn():
     conn.commit()
     conn.close()
 
+    if (len(username.get()) == 0):
+        messagebox.showerror('Sign Up Error', 'Username must not be empty')
 
-    if str(username.get()).lower()=='username' :
-        messagebox.showerror('Login Error', 'Given credentials can not be username')
+    else:
+        if str(username.get()).lower()=='username' :
+            messagebox.showerror('Login Error', 'Given credentials can not be username')
 
-    elif str(password.get()).lower()=='password':
-         messagebox.showerror('Login Error', 'Given credentials can not be password')
+        elif str(password.get()).lower()=='password':
+             messagebox.showerror('Login Error', 'Given credentials can not be password')
 
-    elif len(str(password.get()))<=8:
-        messagebox.showerror('Login Error', 'Password should be greater than 8 characters')
+        elif len(str(password.get()))<=8:
+            messagebox.showerror('Login Error', 'Password should be greater than 8 characters')
 
-    elif valid_user:
-        messagebox.showerror('Login Error', 'Username already exists')
+        elif valid_user:
+            messagebox.showerror('Login Error', 'Username already exists')
 
     
-    else:
-        conn = sqlite3.connect('registration.db')
-        c = conn.cursor()
+        else:
+            conn = sqlite3.connect('registration.db')
+            c = conn.cursor()
 
     #     c.execute(
     #         '''
@@ -157,8 +160,6 @@ def signIn():
     username = CTkEntry(m_frame, placeholder_text='Username', width=175, font=('Microsoft YaHei UI Light', 16), border_width=0)
     username.place(x=70, y=70)
     
-    if (len(username.get()) == 0):
-        messagebox.showerror('Sign Up Error', 'Username must not be empty')
 
     password = CTkEntry(m_frame, placeholder_text='Password', width=175, font=('Microsoft YaHei UI Light', 16), border_width=0)
     password.place(x=70, y=110)
