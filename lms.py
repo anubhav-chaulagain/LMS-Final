@@ -52,14 +52,6 @@ def signingIn():
             conn = sqlite3.connect('registration.db')
             c = conn.cursor()
 
-    #     c.execute(
-    #         '''
-    #     CREATE TABLE registration_table(
-    #     username text,
-    #     password text
-    #     )
-    # '''
-    # )
         
         c.execute(
             'INSERT INTO registration_table VALUES (:name, :pass)',
